@@ -1,0 +1,134 @@
+{
+  "audit": {
+    "composition_macro_plans": 32,
+    "composition_overlap": 0,
+    "novel_target_leakage": 0,
+    "quotas_match": true,
+    "semantic_duplicates": 0,
+    "train_macro_plans": 240
+  },
+  "benchmarks": [
+    {
+      "adaptation": "Harvest inventory/environment variants; Tech Tree craft-and-use; categories adapted, no original trajectories copied.",
+      "name": "MineDojo",
+      "url": "https://docs.minedojo.org/sections/core_api/sim.html"
+    },
+    {
+      "adaptation": "Wood/stone/iron acquisition progression, translated into our own tools, not MineRL action labels.",
+      "name": "MineRL",
+      "url": "https://minerl.readthedocs.io/en/v0.4.4/environments/"
+    },
+    {
+      "adaptation": "Recipe-conditioned inventory planning and replay validation; our bounded world is a different environment.",
+      "name": "Plancraft",
+      "url": "https://github.com/gautierdag/plancraft"
+    }
+  ],
+  "category_by_split": {
+    "test": {
+      "A": 40,
+      "B": 50,
+      "C": 120,
+      "D": 20,
+      "E": 20
+    },
+    "train": {
+      "A": 200,
+      "B": 250,
+      "C": 350,
+      "D": 100,
+      "E": 100
+    },
+    "valid": {
+      "A": 30,
+      "B": 40,
+      "C": 50,
+      "D": 15,
+      "E": 15
+    }
+  },
+  "dataset_version": "multistep_v1",
+  "difficulty_by_split": {
+    "test": {
+      "L0": 50,
+      "L1": 100,
+      "L2": 100
+    },
+    "train": {
+      "L0": 200,
+      "L1": 400,
+      "L2": 400
+    },
+    "valid": {
+      "L0": 30,
+      "L1": 60,
+      "L2": 60
+    }
+  },
+  "difficulty_definition": "Reference policy action count, not proven minimum or universal task difficulty.",
+  "format_version": "bounded-composite-tool-v1",
+  "generation_attempts": 28364,
+  "git_commit": "cc7a8451fdc35eb9ce5f1b4d79f3ff0bc32b3210",
+  "git_dirty": true,
+  "goal_semantics": "Newly obtain/craft/smelt specified count; E also records actual use of specified new tool type.",
+  "language_trajectory_count": 4200,
+  "limitations": [
+    "All scenes constructively solvable; no failure labels.",
+    "Exposed patches, inspected chest, common public stations; no survival/combat/exploration.",
+    "No durability/enchantments/alternate recipes; every case uses fewer than 59 digs.",
+    "Three manually templated Chinese phrasings, not three independent world states.",
+    "Recipe knowledge for held-out targets is supplied identically to all splits."
+  ],
+  "map_templates": {
+    "forest": 312,
+    "mixed": 403,
+    "surface_coal": 347,
+    "surface_iron": 338
+  },
+  "minecraft_version": "1.20.1",
+  "samples_by_split": {
+    "test": 2208,
+    "train": 9018,
+    "valid": 1356
+  },
+  "scenario_count": 1400,
+  "scenarios_by_split": {
+    "test": 250,
+    "train": 1000,
+    "valid": 150
+  },
+  "seed": 42,
+  "sha256": {
+    "config.json": "1e02f45603fa26a1aa149588e92c2e2f50435d791103cd37f00b0e2420867c3e",
+    "recipe_catalog.json": "1a5274e77e91602cbfbc72eed6c020ed074e73f13452f5422d846fc9e24d2c7d",
+    "tasks.json": "0348ae3722b16753ed16aa2f4d879ca2082865858b6fa32abef4fd87d961a4c7",
+    "test.jsonl": "6e7a7828438f125cb1f7e9375fa16c851ab3f10b4147f95d66bcb6e3d16e0713",
+    "tool_schema.json": "25b63dcc436f09d292deb71497b220450fd25f242de16b824caebf242cf828a0",
+    "train.jsonl": "a8ee82363cb5b64a5f34c4f0df97556624acc7be083a47443718cabe8852a355",
+    "trajectories.jsonl": "8cdcb95f49eba931d184d3376508dd94849bd4c141b144cb7462264e1c9f6fb6",
+    "valid.jsonl": "fc340a39a29745933843ba0243504e2bfa4c9e67f037cd2f9ff509c7744cb023"
+  },
+  "source_sha256": {
+    "scripts/export_recipe_catalog.js": "52341decdb13bea3c24d50407b24f87fe41ad55cfe286d6059125bf6a2b3160f",
+    "scripts/generate_multistep_tasks.py": "0691acfe758c3bd3e8b4eabb2e608966b619633004ef45cc2516a3b4b74c5871",
+    "src/dataset/multistep.py": "16c82320b6f1904d4f0dd80c05de3086d4ddaac44edee8068543e26f4f7810d2",
+    "src/dataset/scenario_generator.py": "091cc2de591319fa47fb674e887e603b4305fb9cc5f13da194d8793cf92b570c",
+    "src/dataset/world_model.py": "46773ca47ac29e8bab432e13cca0b9216a1409636cc332a8b58246364e1c87ed",
+    "src/tools/composite_tool_schema.py": "4d17259866bce25956a8679fa6bb38af6b663f65d26d77b4a194bacebd22428e"
+  },
+  "step_sample_count": 12582,
+  "test_partitions": {
+    "composition": 100,
+    "novel_target": 50,
+    "state": 100
+  },
+  "tools": [
+    "collect_resource",
+    "craft_item",
+    "equip_item",
+    "retrieve_items",
+    "smelt_item"
+  ],
+  "training_input": "Serialize only input. Prepend the same tool_schema.json for every split. Predict target.",
+  "validation": "Symbolic preconditions/recipes/events replayed; not real-server task completion."
+}

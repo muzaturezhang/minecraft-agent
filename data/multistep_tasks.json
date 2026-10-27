@@ -1,0 +1,102 @@
+[
+  {
+    "task_id": "torch_from_nearby_coal",
+    "instruction": "帮我做四个火把。",
+    "language_variants": ["请收集材料后合成 4 根火把。", "我需要四支火把，材料不够就先去找。"],
+    "initial_state": {
+      "inventory": {"stick": 1, "coal": 0},
+      "nearby_resources": {"coal_ore": 1},
+      "capabilities": {"has_pickaxe": true, "crafting_table_available": true}
+    },
+    "steps": [
+      {
+        "tool": "collect_resource",
+        "args": {"resource": "coal", "count": 1},
+        "state_delta": {"inventory": {"coal": 1}, "set": {"nearby_resources.coal_ore": 0}}
+      },
+      {
+        "tool": "craft_item",
+        "args": {"item": "torch", "count": 4},
+        "state_delta": {"inventory": {"stick": -1, "coal": -1, "torch": 4}}
+      }
+    ],
+    "metadata": {"family": "resource_then_craft", "difficulty": "easy"}
+  },
+  {
+    "task_id": "pickaxe_from_chest",
+    "instruction": "从附近箱子取材料，合成一把铁镐。",
+    "language_variants": ["拿三块铁锭和两根木棍，然后做铁镐。"],
+    "initial_state": {
+      "inventory": {"stick": 0, "iron_ingot": 0},
+      "containers": {"chest_1": {"iron_ingot": 3, "stick": 2}},
+      "known_targets": {"chest_1": {"type": "container", "position": [4, 64, -2]}},
+      "capabilities": {"crafting_table_available": true}
+    },
+    "steps": [
+      {
+        "tool": "retrieve_items",
+        "args": {"container": "chest_1", "item": "iron_ingot", "count": 3},
+        "state_delta": {"inventory": {"iron_ingot": 3}, "set": {"containers.chest_1.iron_ingot": 0}}
+      },
+      {
+        "tool": "retrieve_items",
+        "args": {"container": "chest_1", "item": "stick", "count": 2},
+        "state_delta": {"inventory": {"stick": 2}, "set": {"containers.chest_1.stick": 0}}
+      },
+      {
+        "tool": "craft_item",
+        "args": {"item": "iron_pickaxe", "count": 1},
+        "state_delta": {"inventory": {"iron_ingot": -3, "stick": -2, "iron_pickaxe": 1}}
+      }
+    ],
+    "metadata": {"family": "container_then_craft", "difficulty": "easy"}
+  },
+  {
+    "task_id": "cook_collected_beef",
+    "instruction": "收集三块生牛肉并把它们烤熟。",
+    "language_variants": ["去拿 3 个生牛肉，放进熔炉烧好。", "我想要三块熟牛肉，先收集再烧。"],
+    "initial_state": {
+      "inventory": {"raw_beef": 0, "coal": 1},
+      "nearby_resources": {"cow": 3},
+      "known_targets": {"furnace_1": {"type": "furnace", "position": [2, 64, 3]}},
+      "capabilities": {"has_weapon": true, "furnace_available": true}
+    },
+    "steps": [
+      {
+        "tool": "collect_resource",
+        "args": {"resource": "raw_beef", "count": 3},
+        "state_delta": {"inventory": {"raw_beef": 3}, "set": {"nearby_resources.cow": 0}}
+      },
+      {
+        "tool": "smelt_item",
+        "args": {"input": "raw_beef", "count": 3, "fuel": "coal", "furnace": "furnace_1"},
+        "state_delta": {"inventory": {"raw_beef": -3, "coal": -1, "cooked_beef": 3}}
+      }
+    ],
+    "metadata": {"family": "resource_then_smelt", "difficulty": "medium"}
+  },
+  {
+    "task_id": "deliver_emeralds",
+    "instruction": "从箱子拿五颗绿宝石交给 Alex。",
+    "language_variants": ["把箱子里的 5 个绿宝石取出来，给 Alex。"],
+    "initial_state": {
+      "inventory": {"emerald": 0},
+      "containers": {"chest_2": {"emerald": 5}},
+      "known_targets": {"chest_2": {"type": "container", "position": [-3, 64, 8]}},
+      "visible_players": ["Alex"]
+    },
+    "steps": [
+      {
+        "tool": "retrieve_items",
+        "args": {"container": "chest_2", "item": "emerald", "count": 5},
+        "state_delta": {"inventory": {"emerald": 5}, "set": {"containers.chest_2.emerald": 0}}
+      },
+      {
+        "tool": "give_items",
+        "args": {"player": "Alex", "item": "emerald", "count": 5},
+        "state_delta": {"inventory": {"emerald": -5}}
+      }
+    ],
+    "metadata": {"family": "container_then_delivery", "difficulty": "easy"}
+  }
+]

@@ -1,0 +1,320 @@
+{
+  "input": {
+    "goal": {
+      "count": 3,
+      "item": "torch",
+      "kind": "craft"
+    },
+    "history": [
+      {
+        "events": [
+          {
+            "count": 1,
+            "item": "coal",
+            "tool": "stone_pickaxe",
+            "type": "harvest"
+          }
+        ],
+        "state_delta": {
+          "inventory": {
+            "coal": 1
+          },
+          "set": {
+            "position": [
+              116,
+              65,
+              12
+            ],
+            "progress": {
+              "crafted": {},
+              "smelted": {},
+              "used": {
+                "stone_pickaxe:coal": 1
+              }
+            },
+            "resources": {
+              "coal": {
+                "count": 19,
+                "position": [
+                  116,
+                  65,
+                  12
+                ],
+                "reachable": true
+              },
+              "cobblestone": {
+                "count": 61,
+                "position": [
+                  140,
+                  65,
+                  -12
+                ],
+                "reachable": true
+              },
+              "oak_log": {
+                "count": 43,
+                "position": [
+                  116,
+                  65,
+                  -12
+                ],
+                "reachable": true
+              }
+            }
+          }
+        },
+        "status": "success",
+        "tool_call": {
+          "arguments": {
+            "count": 1,
+            "resource": "coal"
+          },
+          "name": "collect_resource"
+        }
+      }
+    ],
+    "instruction": "请新制作至少3个火把。",
+    "recipe_knowledge": {
+      "craft_recipes": {
+        "crafting_table": {
+          "inputs": {
+            "oak_planks": 4
+          },
+          "output_count": 1,
+          "requires_crafting_table": false
+        },
+        "furnace": {
+          "inputs": {
+            "cobblestone": 8
+          },
+          "output_count": 1,
+          "requires_crafting_table": true
+        },
+        "iron_axe": {
+          "inputs": {
+            "iron_ingot": 3,
+            "stick": 2
+          },
+          "output_count": 1,
+          "requires_crafting_table": true
+        },
+        "iron_hoe": {
+          "inputs": {
+            "iron_ingot": 2,
+            "stick": 2
+          },
+          "output_count": 1,
+          "requires_crafting_table": true
+        },
+        "iron_pickaxe": {
+          "inputs": {
+            "iron_ingot": 3,
+            "stick": 2
+          },
+          "output_count": 1,
+          "requires_crafting_table": true
+        },
+        "iron_shovel": {
+          "inputs": {
+            "iron_ingot": 1,
+            "stick": 2
+          },
+          "output_count": 1,
+          "requires_crafting_table": true
+        },
+        "oak_planks": {
+          "inputs": {
+            "oak_log": 1
+          },
+          "output_count": 4,
+          "requires_crafting_table": false
+        },
+        "stick": {
+          "inputs": {
+            "oak_planks": 2
+          },
+          "output_count": 4,
+          "requires_crafting_table": false
+        },
+        "stone_axe": {
+          "inputs": {
+            "cobblestone": 3,
+            "stick": 2
+          },
+          "output_count": 1,
+          "requires_crafting_table": true
+        },
+        "stone_pickaxe": {
+          "inputs": {
+            "cobblestone": 3,
+            "stick": 2
+          },
+          "output_count": 1,
+          "requires_crafting_table": true
+        },
+        "stone_shovel": {
+          "inputs": {
+            "cobblestone": 1,
+            "stick": 2
+          },
+          "output_count": 1,
+          "requires_crafting_table": true
+        },
+        "torch": {
+          "inputs": {
+            "coal": 1,
+            "stick": 1
+          },
+          "output_count": 4,
+          "requires_crafting_table": false
+        },
+        "wooden_axe": {
+          "inputs": {
+            "oak_planks": 3,
+            "stick": 2
+          },
+          "output_count": 1,
+          "requires_crafting_table": true
+        },
+        "wooden_pickaxe": {
+          "inputs": {
+            "oak_planks": 3,
+            "stick": 2
+          },
+          "output_count": 1,
+          "requires_crafting_table": true
+        },
+        "wooden_shovel": {
+          "inputs": {
+            "oak_planks": 1,
+            "stick": 2
+          },
+          "output_count": 1,
+          "requires_crafting_table": true
+        }
+      },
+      "smelt_recipes": {
+        "raw_beef": {
+          "fuel": "coal",
+          "input_game_name": "beef",
+          "items_per_fuel": 8,
+          "output": "cooked_beef"
+        },
+        "raw_iron": {
+          "fuel": "coal",
+          "input_game_name": "raw_iron",
+          "items_per_fuel": 8,
+          "output": "iron_ingot"
+        }
+      }
+    },
+    "state": {
+      "boundary": {
+        "origin": [
+          128,
+          65,
+          0
+        ],
+        "radius": 32
+      },
+      "capabilities": {
+        "crafting_table_available": true,
+        "furnace_available": true
+      },
+      "containers": {
+        "supply_chest": {
+          "coal": 20,
+          "oak_log": 29,
+          "oak_planks": 18,
+          "stick": 37,
+          "wooden_pickaxe": 1
+        }
+      },
+      "equipment": {},
+      "inventory": {
+        "coal": 1,
+        "stick": 7,
+        "stone_pickaxe": 1
+      },
+      "known_targets": {
+        "furnace": {
+          "position": [
+            131,
+            65,
+            3
+          ],
+          "type": "furnace"
+        },
+        "supply_chest": {
+          "position": [
+            131,
+            65,
+            1
+          ],
+          "type": "container"
+        },
+        "workbench": {
+          "position": [
+            129,
+            65,
+            3
+          ],
+          "type": "crafting_table"
+        }
+      },
+      "position": [
+        116,
+        65,
+        12
+      ],
+      "progress": {
+        "crafted": {},
+        "smelted": {},
+        "used": {
+          "stone_pickaxe:coal": 1
+        }
+      },
+      "resources": {
+        "coal": {
+          "count": 19,
+          "position": [
+            116,
+            65,
+            12
+          ],
+          "reachable": true
+        },
+        "cobblestone": {
+          "count": 61,
+          "position": [
+            140,
+            65,
+            -12
+          ],
+          "reachable": true
+        },
+        "oak_log": {
+          "count": 43,
+          "position": [
+            116,
+            65,
+            -12
+          ],
+          "reachable": true
+        }
+      }
+    }
+  },
+  "sample_id": "train_main_B_torch_L1_002__v0__s1",
+  "scenario_group": "5914e9ce201dfffd527dafe0be12cdb872225ad650ee49fd469fb6acca9368ee",
+  "split": "train",
+  "step_index": 1,
+  "target": {
+    "arguments": {
+      "count": 3,
+      "item": "torch"
+    },
+    "name": "craft_item"
+  },
+  "task_id": "train_main_B_torch_L1_002"
+}

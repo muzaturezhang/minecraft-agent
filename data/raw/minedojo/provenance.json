@@ -1,0 +1,6 @@
+{
+  "url": "https://raw.githubusercontent.com/MineDojo/MineDojo/main/minedojo/tasks/description_files/tasks_specs.yaml",
+  "retrieved_date": "2026-10-26",
+  "sha256": "ec0e11e076c594325b1567ed62e78debc13782bfdf1b1071ebcab2b1280d427c",
+  "usage": "Task-family templates only; no external action trajectories used."
+}

@@ -1,0 +1,1585 @@
+{
+  "benchmark_case_templates": {
+    "A": [
+      "harvest_{quantity}_{natural_items}",
+      "harvest_{quantity}_{ore_type}_with_{pickaxe_material}_pickaxe"
+    ],
+    "B": [
+      "harvest_{quantity}_{craft_items}",
+      "harvest_{quantity}_{crafting_table_items}_with_crafting_table"
+    ],
+    "C": [
+      "techtree_from_barehand_to_{from_barehand_tools}_{target_tools}"
+    ],
+    "D": [
+      "harvest_{quantity}_{furnace_items}_with_furnace_and_fuel"
+    ],
+    "E": [
+      "techtree_from_wood_to_{from_wood_tools}_{target_tools}"
+    ]
+  },
+  "benchmark_snapshot": {
+    "retrieved_date": "2026-10-26",
+    "sha256": "ec0e11e076c594325b1567ed62e78debc13782bfdf1b1071ebcab2b1280d427c",
+    "url": "https://raw.githubusercontent.com/MineDojo/MineDojo/main/minedojo/tasks/description_files/tasks_specs.yaml",
+    "usage": "Task-family templates only; no external action trajectories used."
+  },
+  "benchmarks": [
+    {
+      "adaptation": "Harvest inventory/environment variants; Tech Tree craft-and-use; categories adapted, no original trajectories copied.",
+      "name": "MineDojo",
+      "url": "https://docs.minedojo.org/sections/core_api/sim.html"
+    },
+    {
+      "adaptation": "Wood/stone/iron acquisition progression, translated into our own tools, not MineRL action labels.",
+      "name": "MineRL",
+      "url": "https://minerl.readthedocs.io/en/v0.4.4/environments/"
+    },
+    {
+      "adaptation": "Recipe-conditioned inventory planning and replay validation; our bounded world is a different environment.",
+      "name": "Plancraft",
+      "url": "https://github.com/gautierdag/plancraft"
+    }
+  ],
+  "boundary_radius": 32,
+  "difficulty_reference_steps": {
+    "L0": [
+      1,
+      1
+    ],
+    "L1": [
+      2,
+      3
+    ],
+    "L2": [
+      4,
+      6
+    ]
+  },
+  "heldout_targets": [
+    "wooden_shovel",
+    "stone_shovel",
+    "iron_shovel",
+    "iron_axe",
+    "iron_hoe"
+  ],
+  "language_variants_per_scenario": 3,
+  "map_template_order": [
+    "forest",
+    "surface_coal",
+    "surface_iron",
+    "mixed"
+  ],
+  "map_templates": {
+    "forest": {
+      "origin": [
+        0,
+        65,
+        0
+      ],
+      "resources": [
+        "oak_log",
+        "cobblestone"
+      ]
+    },
+    "mixed": {
+      "origin": [
+        384,
+        65,
+        0
+      ],
+      "resources": [
+        "oak_log",
+        "cobblestone",
+        "coal",
+        "raw_iron"
+      ]
+    },
+    "surface_coal": {
+      "origin": [
+        128,
+        65,
+        0
+      ],
+      "resources": [
+        "oak_log",
+        "cobblestone",
+        "coal"
+      ]
+    },
+    "surface_iron": {
+      "origin": [
+        256,
+        65,
+        0
+      ],
+      "resources": [
+        "oak_log",
+        "cobblestone",
+        "raw_iron"
+      ]
+    }
+  },
+  "minecraft_version": "1.20.1",
+  "quotas": [
+    {
+      "category": "A",
+      "count": 50,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "oak_log",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 10,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "coal",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 10,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "cobblestone",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 10,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "raw_iron",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 27,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "coal",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 27,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "cobblestone",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 26,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "raw_iron",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 13,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "coal",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 13,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "cobblestone",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 14,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "raw_iron",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 30,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "oak_planks",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 15,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "stick",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 15,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "crafting_table",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 20,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "oak_planks",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 35,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "stick",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 10,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "torch",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 35,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "crafting_table",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 10,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "furnace",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 40,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "torch",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 40,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "furnace",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 8,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "wooden_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 8,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "stone_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 8,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "iron_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 8,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "wooden_axe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 8,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "stone_axe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 26,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "wooden_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 26,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "stone_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 26,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "iron_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 26,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "wooden_axe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 26,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "stone_axe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 36,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "wooden_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 36,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "stone_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 36,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "iron_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 36,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "wooden_axe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 36,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "stone_axe",
+      "test_partition": null
+    },
+    {
+      "category": "D",
+      "count": 10,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "iron_ingot",
+      "test_partition": null
+    },
+    {
+      "category": "D",
+      "count": 10,
+      "difficulty": "L0",
+      "split": "train",
+      "target": "cooked_beef",
+      "test_partition": null
+    },
+    {
+      "category": "D",
+      "count": 20,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "iron_ingot",
+      "test_partition": null
+    },
+    {
+      "category": "D",
+      "count": 20,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "cooked_beef",
+      "test_partition": null
+    },
+    {
+      "category": "D",
+      "count": 20,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "iron_ingot",
+      "test_partition": null
+    },
+    {
+      "category": "D",
+      "count": 20,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "cooked_beef",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 8,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "wooden_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 8,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "stone_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 8,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "iron_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 8,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "wooden_axe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 8,
+      "difficulty": "L1",
+      "split": "train",
+      "target": "stone_axe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 12,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "wooden_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 12,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "stone_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 12,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "iron_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 12,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "wooden_axe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 12,
+      "difficulty": "L2",
+      "split": "train",
+      "target": "stone_axe",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 7,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "oak_log",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 1,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "coal",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 1,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "cobblestone",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 1,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "raw_iron",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "coal",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "cobblestone",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "raw_iron",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "coal",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "cobblestone",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "raw_iron",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 6,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "oak_planks",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 2,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "stick",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 2,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "crafting_table",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "oak_planks",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 6,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "stick",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 1,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "torch",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 6,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "crafting_table",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 1,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "furnace",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 7,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "torch",
+      "test_partition": null
+    },
+    {
+      "category": "B",
+      "count": 7,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "furnace",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 2,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "wooden_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 2,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "stone_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 2,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "iron_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 2,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "wooden_axe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 2,
+      "difficulty": "L0",
+      "split": "valid",
+      "target": "stone_axe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "wooden_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "stone_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "iron_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "wooden_axe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "stone_axe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "wooden_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "stone_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "iron_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "wooden_axe",
+      "test_partition": null
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "stone_axe",
+      "test_partition": null
+    },
+    {
+      "category": "D",
+      "count": 3,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "iron_ingot",
+      "test_partition": null
+    },
+    {
+      "category": "D",
+      "count": 3,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "cooked_beef",
+      "test_partition": null
+    },
+    {
+      "category": "D",
+      "count": 4,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "iron_ingot",
+      "test_partition": null
+    },
+    {
+      "category": "D",
+      "count": 5,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "cooked_beef",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "wooden_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "stone_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "iron_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "wooden_axe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "valid",
+      "target": "stone_axe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "wooden_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "stone_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "iron_pickaxe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "wooden_axe",
+      "test_partition": null
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L2",
+      "split": "valid",
+      "target": "stone_axe",
+      "test_partition": null
+    },
+    {
+      "category": "A",
+      "count": 5,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "oak_log",
+      "test_partition": "state"
+    },
+    {
+      "category": "A",
+      "count": 2,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "coal",
+      "test_partition": "state"
+    },
+    {
+      "category": "A",
+      "count": 2,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "cobblestone",
+      "test_partition": "state"
+    },
+    {
+      "category": "A",
+      "count": 1,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "raw_iron",
+      "test_partition": "state"
+    },
+    {
+      "category": "A",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "coal",
+      "test_partition": "state"
+    },
+    {
+      "category": "A",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "cobblestone",
+      "test_partition": "state"
+    },
+    {
+      "category": "A",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "raw_iron",
+      "test_partition": "state"
+    },
+    {
+      "category": "A",
+      "count": 1,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "coal",
+      "test_partition": "state"
+    },
+    {
+      "category": "A",
+      "count": 1,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "cobblestone",
+      "test_partition": "state"
+    },
+    {
+      "category": "A",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "raw_iron",
+      "test_partition": "state"
+    },
+    {
+      "category": "B",
+      "count": 5,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "oak_planks",
+      "test_partition": "state"
+    },
+    {
+      "category": "B",
+      "count": 5,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "stick",
+      "test_partition": "state"
+    },
+    {
+      "category": "B",
+      "count": 5,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "crafting_table",
+      "test_partition": "state"
+    },
+    {
+      "category": "B",
+      "count": 3,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "torch",
+      "test_partition": "state"
+    },
+    {
+      "category": "B",
+      "count": 3,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "furnace",
+      "test_partition": "state"
+    },
+    {
+      "category": "B",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "torch",
+      "test_partition": "state"
+    },
+    {
+      "category": "B",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "furnace",
+      "test_partition": "state"
+    },
+    {
+      "category": "C",
+      "count": 5,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "wooden_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "C",
+      "count": 5,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "stone_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "C",
+      "count": 5,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "iron_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "C",
+      "count": 5,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "wooden_axe",
+      "test_partition": "state"
+    },
+    {
+      "category": "C",
+      "count": 5,
+      "difficulty": "L0",
+      "split": "test",
+      "target": "stone_axe",
+      "test_partition": "state"
+    },
+    {
+      "category": "C",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "wooden_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "C",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "stone_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "C",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "iron_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "C",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "wooden_axe",
+      "test_partition": "state"
+    },
+    {
+      "category": "C",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "stone_axe",
+      "test_partition": "state"
+    },
+    {
+      "category": "D",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "iron_ingot",
+      "test_partition": "state"
+    },
+    {
+      "category": "D",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "cooked_beef",
+      "test_partition": "state"
+    },
+    {
+      "category": "D",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "iron_ingot",
+      "test_partition": "state"
+    },
+    {
+      "category": "D",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "cooked_beef",
+      "test_partition": "state"
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "wooden_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "stone_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "iron_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "wooden_axe",
+      "test_partition": "state"
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "wooden_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "stone_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "iron_pickaxe",
+      "test_partition": "state"
+    },
+    {
+      "category": "E",
+      "count": 1,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "wooden_axe",
+      "test_partition": "state"
+    },
+    {
+      "category": "E",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "stone_axe",
+      "test_partition": "state"
+    },
+    {
+      "category": "A",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "coal",
+      "test_partition": "composition"
+    },
+    {
+      "category": "A",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "cobblestone",
+      "test_partition": "composition"
+    },
+    {
+      "category": "A",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "raw_iron",
+      "test_partition": "composition"
+    },
+    {
+      "category": "A",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "coal",
+      "test_partition": "composition"
+    },
+    {
+      "category": "A",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "cobblestone",
+      "test_partition": "composition"
+    },
+    {
+      "category": "A",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "raw_iron",
+      "test_partition": "composition"
+    },
+    {
+      "category": "B",
+      "count": 3,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "oak_planks",
+      "test_partition": "composition"
+    },
+    {
+      "category": "B",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "stick",
+      "test_partition": "composition"
+    },
+    {
+      "category": "B",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "torch",
+      "test_partition": "composition"
+    },
+    {
+      "category": "B",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "crafting_table",
+      "test_partition": "composition"
+    },
+    {
+      "category": "B",
+      "count": 1,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "furnace",
+      "test_partition": "composition"
+    },
+    {
+      "category": "B",
+      "count": 6,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "torch",
+      "test_partition": "composition"
+    },
+    {
+      "category": "B",
+      "count": 5,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "furnace",
+      "test_partition": "composition"
+    },
+    {
+      "category": "D",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "iron_ingot",
+      "test_partition": "composition"
+    },
+    {
+      "category": "D",
+      "count": 2,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "cooked_beef",
+      "test_partition": "composition"
+    },
+    {
+      "category": "D",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "iron_ingot",
+      "test_partition": "composition"
+    },
+    {
+      "category": "D",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "cooked_beef",
+      "test_partition": "composition"
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "wooden_shovel",
+      "test_partition": "novel_target"
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "stone_shovel",
+      "test_partition": "novel_target"
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "iron_shovel",
+      "test_partition": "novel_target"
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "iron_axe",
+      "test_partition": "novel_target"
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "iron_hoe",
+      "test_partition": "novel_target"
+    },
+    {
+      "category": "C",
+      "count": 6,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "wooden_shovel",
+      "test_partition": "novel_target"
+    },
+    {
+      "category": "C",
+      "count": 6,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "stone_shovel",
+      "test_partition": "novel_target"
+    },
+    {
+      "category": "C",
+      "count": 6,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "iron_shovel",
+      "test_partition": "novel_target"
+    },
+    {
+      "category": "C",
+      "count": 6,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "iron_axe",
+      "test_partition": "novel_target"
+    },
+    {
+      "category": "C",
+      "count": 6,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "iron_hoe",
+      "test_partition": "novel_target"
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "wooden_pickaxe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "stone_pickaxe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "iron_pickaxe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "wooden_axe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "C",
+      "count": 4,
+      "difficulty": "L1",
+      "split": "test",
+      "target": "stone_axe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "C",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "wooden_pickaxe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "C",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "stone_pickaxe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "C",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "iron_pickaxe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "C",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "wooden_axe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "C",
+      "count": 3,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "stone_axe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "E",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "wooden_pickaxe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "E",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "stone_pickaxe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "E",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "iron_pickaxe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "E",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "wooden_axe",
+      "test_partition": "composition"
+    },
+    {
+      "category": "E",
+      "count": 2,
+      "difficulty": "L2",
+      "split": "test",
+      "target": "stone_axe",
+      "test_partition": "composition"
+    }
+  ],
+  "seed": 42,
+  "simulation_version": "bounded-v1",
+  "version": "multistep_v1"
+}

@@ -1,0 +1,143 @@
+{
+  "craft_recipes": {
+    "crafting_table": {
+      "inputs": {
+        "oak_planks": 4
+      },
+      "output_count": 1,
+      "requires_crafting_table": false
+    },
+    "furnace": {
+      "inputs": {
+        "cobblestone": 8
+      },
+      "output_count": 1,
+      "requires_crafting_table": true
+    },
+    "iron_axe": {
+      "inputs": {
+        "iron_ingot": 3,
+        "stick": 2
+      },
+      "output_count": 1,
+      "requires_crafting_table": true
+    },
+    "iron_hoe": {
+      "inputs": {
+        "iron_ingot": 2,
+        "stick": 2
+      },
+      "output_count": 1,
+      "requires_crafting_table": true
+    },
+    "iron_pickaxe": {
+      "inputs": {
+        "iron_ingot": 3,
+        "stick": 2
+      },
+      "output_count": 1,
+      "requires_crafting_table": true
+    },
+    "iron_shovel": {
+      "inputs": {
+        "iron_ingot": 1,
+        "stick": 2
+      },
+      "output_count": 1,
+      "requires_crafting_table": true
+    },
+    "oak_planks": {
+      "inputs": {
+        "oak_log": 1
+      },
+      "output_count": 4,
+      "requires_crafting_table": false
+    },
+    "stick": {
+      "inputs": {
+        "oak_planks": 2
+      },
+      "output_count": 4,
+      "requires_crafting_table": false
+    },
+    "stone_axe": {
+      "inputs": {
+        "cobblestone": 3,
+        "stick": 2
+      },
+      "output_count": 1,
+      "requires_crafting_table": true
+    },
+    "stone_pickaxe": {
+      "inputs": {
+        "cobblestone": 3,
+        "stick": 2
+      },
+      "output_count": 1,
+      "requires_crafting_table": true
+    },
+    "stone_shovel": {
+      "inputs": {
+        "cobblestone": 1,
+        "stick": 2
+      },
+      "output_count": 1,
+      "requires_crafting_table": true
+    },
+    "torch": {
+      "inputs": {
+        "coal": 1,
+        "stick": 1
+      },
+      "output_count": 4,
+      "requires_crafting_table": false
+    },
+    "wooden_axe": {
+      "inputs": {
+        "oak_planks": 3,
+        "stick": 2
+      },
+      "output_count": 1,
+      "requires_crafting_table": true
+    },
+    "wooden_pickaxe": {
+      "inputs": {
+        "oak_planks": 3,
+        "stick": 2
+      },
+      "output_count": 1,
+      "requires_crafting_table": true
+    },
+    "wooden_shovel": {
+      "inputs": {
+        "oak_planks": 1,
+        "stick": 2
+      },
+      "output_count": 1,
+      "requires_crafting_table": true
+    }
+  },
+  "minecraft_data_version": "3.117.0",
+  "minecraft_version": "1.20.1",
+  "notes": [
+    "Craft recipes extracted from minecraft-data; one oak/coal/cobblestone recipe per target.",
+    "Smelting subset is declared explicitly and checked against server data when preparing a test world.",
+    "raw_beef is the existing executor observation alias for Minecraft beef.",
+    "No enchantments, alternate fuels or charcoal recipes in this bounded release."
+  ],
+  "server_jar_sha256": "3af73a9dc5a102e38147946360dd27d4d70bae7055bf91cf2151cd5d121b79e0",
+  "smelt_recipes": {
+    "raw_beef": {
+      "fuel": "coal",
+      "input_game_name": "beef",
+      "items_per_fuel": 8,
+      "output": "cooked_beef"
+    },
+    "raw_iron": {
+      "fuel": "coal",
+      "input_game_name": "raw_iron",
+      "items_per_fuel": 8,
+      "output": "iron_ingot"
+    }
+  }
+}

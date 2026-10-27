@@ -1,0 +1,164 @@
+{
+  "collect_resource": {
+    "allowed_values": {},
+    "base_tools": [
+      "get_inventory",
+      "find_blocks",
+      "goto_position",
+      "equip",
+      "dig_block"
+    ],
+    "confusable_with": {},
+    "constraints": [],
+    "defaults": {
+      "max_distance": 64,
+      "search_radius": 32
+    },
+    "description": "寻找并获取指定资源，使其进入背包；tool 指定必须实际使用的手持工具。",
+    "examples": [
+      "弄八块煤回来",
+      "收集十个橡木原木"
+    ],
+    "optional_args": {
+      "max_distance": "int",
+      "search_radius": "int",
+      "tool": "str"
+    },
+    "required_args": {
+      "count": "int",
+      "resource": "str"
+    },
+    "returns": {
+      "collected_count": "int"
+    },
+    "success_condition": "获得目标数量资源。"
+  },
+  "craft_item": {
+    "allowed_values": {},
+    "base_tools": [
+      "get_inventory",
+      "get_recipes",
+      "find_blocks",
+      "goto_position",
+      "craft"
+    ],
+    "confusable_with": {},
+    "constraints": [],
+    "defaults": {
+      "crafting_table": "nearest_or_inventory"
+    },
+    "description": "合成指定数量物品。",
+    "examples": [
+      "做四个火把",
+      "合成一把铁镐"
+    ],
+    "optional_args": {
+      "crafting_table": "target"
+    },
+    "required_args": {
+      "count": "int",
+      "item": "str"
+    },
+    "returns": {
+      "crafted_count": "int"
+    },
+    "success_condition": "获得指定数量合成物。"
+  },
+  "equip_item": {
+    "allowed_values": {
+      "slot": [
+        "hand",
+        "off_hand",
+        "head",
+        "torso",
+        "legs",
+        "feet"
+      ]
+    },
+    "base_tools": [
+      "get_inventory",
+      "equip"
+    ],
+    "confusable_with": {},
+    "constraints": [],
+    "defaults": {
+      "slot": "hand"
+    },
+    "description": "装备指定物品。",
+    "examples": [
+      "拿上铁镐",
+      "穿上铁胸甲"
+    ],
+    "optional_args": {
+      "slot": "str"
+    },
+    "required_args": {
+      "item": "str"
+    },
+    "returns": {
+      "success": "bool"
+    },
+    "success_condition": "物品进入目标装备位。"
+  },
+  "retrieve_items": {
+    "allowed_values": {},
+    "base_tools": [
+      "goto_position",
+      "open_container",
+      "transfer_from_container",
+      "close_container"
+    ],
+    "confusable_with": {},
+    "constraints": [],
+    "defaults": {},
+    "description": "从容器取出物品。",
+    "examples": [
+      "从箱子拿十块煤"
+    ],
+    "optional_args": {},
+    "required_args": {
+      "container": "target",
+      "count": "int",
+      "item": "str"
+    },
+    "returns": {
+      "retrieved_count": "int"
+    },
+    "success_condition": "物品进入背包。"
+  },
+  "smelt_item": {
+    "allowed_values": {},
+    "base_tools": [
+      "get_inventory",
+      "find_blocks",
+      "goto_position",
+      "open_furnace",
+      "furnace_put_input",
+      "furnace_put_fuel",
+      "wait_ticks",
+      "furnace_take_output"
+    ],
+    "confusable_with": {},
+    "constraints": [],
+    "defaults": {
+      "furnace": "nearest"
+    },
+    "description": "使用熔炉加工指定物品。",
+    "examples": [
+      "烧十块铁矿",
+      "烤五块牛肉"
+    ],
+    "optional_args": {
+      "fuel": "str",
+      "furnace": "target"
+    },
+    "required_args": {
+      "count": "int",
+      "input": "str"
+    },
+    "returns": {
+      "output_items": "list[item]"
+    },
+    "success_condition": "完成指定数量熔炼。"
+  }
+}
