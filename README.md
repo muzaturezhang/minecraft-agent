@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Minecraft Agent: State-Conditioned Tool-Call Data
 
 This repository contains data construction, offline rule replay and game tool execution for a Chinese-instruction Minecraft agent. Given a final goal, inventory, a bounded world state and execution history, each training example predicts the next high-level tool call.
